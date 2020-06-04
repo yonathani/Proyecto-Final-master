@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>@ViewBag.Title - Mios Barber</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+
+<body style="background-image:url(Content/Img/fondobarber.jpg); background-repeat: no-repeat; background-attachment: fixed; background-size: cover;" id="page-top">
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark fixed-top">
+        <a class="navbar-brand text-warning" href="@Url.Action("Index","Home")">Mios Barber</a>
+        <button class="navbar-toggler bg-primary" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse text-white" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active text-white">
+                    <a class="nav-link text-white" href="@Url.Action("Index","Citas")">Agendar Citas <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item text-white">
+                    <a class="nav-link text-white" href="@Url.Action("About","Home")">Nuestros Barberos</a>
+                </li>
+                <li class="nav-item text-white">
+                    <a class="nav-link disabled text-white" href="@Url.Action("Contact","Home")">Sobre Nosotros</a>
+                </li>
+                <li class="nav-item text-white">
+                    <a class="nav-link disabled text-white" href="@Url.Action("Register","Account")">Registrar</a>
+                </li>
+            </ul>
+            <a class="navbar-brand text-info" href=@Html.Partial("_LoginPartial")></a>
+        </div>
+    </nav>
+
+    <p></p>
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer class="footer text-center">
+            <div class="card text-white bg-dark rounded-lg border border-primary">
+                <div class="row">
+                    <!-- Footer Location-->
+                    <div class="col-lg-4 mb-5 mb-lg-0">
+                        <h4 class="text-uppercase mb-4">Location</h4>
+                        <p class="lead mb-0">2215 John Daniel Drive<br />Clark, MO 65243</p>
+                    </div>
+                    <!-- Footer Social Icons-->
+                    <div class="col-lg-4 mb-5 mb-lg-0">
+                        <h4 class="text-uppercase mb-4">Around the Web</h4>
+                        <a class="btn btn-outline-info btn-social mx-2" href="#!">
+                            <i class="fab fa-fw fa-facebook-f"></i>
+                        </a><a class="btn btn-outline-info btn-social mx-2" href="#!">
+                            <i class="fab fa-fw fa-twitter"></i>
+                        </a><a class="btn btn-outline-info btn-social mx-2" href="#!">
+                            <i class="fab fa-fw fa-linkedin-in"></i>
+                        </a><a class="btn btn-outline-info btn-social mx-2" href="#!"><i class="fab fa-fw fa-dribbble"></i></a>
+                        <p></p>
+                    </div>
+                    <!-- Footer About Text-->
+                    <div class="col-lg-4">
+                        <h4 class="text-uppercase mb-4">About Freelancer</h4>
+                        <p class="lead mb-0">Freelance is a free to use, MIT licensed Bootstrap theme created by <a href="http://startbootstrap.com">Start Bootstrap</a>.</p>
+                    </div>
+                </div>
+            </div>
+            <p></p>
+            <p class="text-white">&copy; @DateTime.Now.Year - Derechos Reservado ITT</p>
+        </footer>
+    </div>
+</body>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    </>
+</html>

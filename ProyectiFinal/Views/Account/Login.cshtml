@@ -1,0 +1,66 @@
+﻿@using ProyectiFinal.Models
+@model LoginViewModel
+@{
+    ViewBag.Title = "Iniciar sesión";
+}
+
+<h2 class="text-warning text-center">Eres Empleado?</h2>
+
+<head>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+</head>
+
+<div class="container h-100">
+    <div class="d-flex justify-content-center h-100">
+        <section id="loginForm">
+            @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+                <h4 class="text-white">Utilice su cuenta para iniciar sesión.</h4>
+
+                <div class="d-flex justify-content-center">
+                    <div class="brand_logo_container " height: 70px">
+                        <img src="~/Content/img/Corte.webp" class="brand_logo rounded-circle mh-300" style="width: 300px; height: 300px; background-color: rgba(124, 85, 1, 0.10);" alt="">
+                    </div>
+                </div>
+                <hr />
+                <div class="form-group mb-3">
+                    <div class="input-group-append col-md-10">
+                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                    </div>
+
+                </div>
+                <div class="form-group mb-3">
+                    <div class="input-group-append col-md-10">
+                        <span class="input-group-text"><i class="fas fa-key"></i></span>
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group text-white">
+                    <div class="col-md-offset-2 col-md-10">
+                        <div class="checkbox">
+                            @Html.CheckBoxFor(m => m.RememberMe)
+                            @Html.LabelFor(m => m.RememberMe)
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Iniciar sesión" class="btn btn-default" />
+                    </div>
+                </div>
+            }
+        </section>
+    </div>
+    <div class="col-md-6 text-center">
+        <section id="socialLoginForm" class="text-center">
+            @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
+        </section>
+    </div>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
